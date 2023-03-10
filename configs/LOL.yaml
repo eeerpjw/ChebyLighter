@@ -1,0 +1,61 @@
+data_path: /home/pjw/Datasets/
+train_bsz: 8
+eval_bsz: 4
+
+# train settings
+phase: train
+num_workers: 4
+num_epoch: 100
+start_epoch: 0
+ckp_freq: 10
+
+# exp names
+exp_name: test
+comment: 1-1 
+
+# dataset
+dataset: LOL # LOL
+test_path: ../Datasets/LOL/Test
+
+# test
+test_epoch: -1
+require_a: False
+
+# dataset
+image_size: 256
+dataset_name: LOL
+
+# loss
+w_vgg: 0.3
+w_ssim: 0.5
+#w_tv: 0.0
+w_mse: 1.0
+w_l1: 0.0
+
+# optimizer
+lr: 0.0001
+b1: 0.9
+b2: 0.999
+weight_decay: 0.0001
+grad_clip_norm: 0.1
+lr_scheduler: exp  #  multistep exp
+lr_step_size: 5
+lr_gamma: 0.95 
+
+# networks
+num_fea: 32 
+adb_type: triple # baseline \ triple \cnn
+model: ChebyAll3DAB # ChebyAll3DAB\ ChebyAll2DABwox \ChebyAll2DABwoy
+# num_orders: 6
+shareweight: False
+
+# vgg settings
+vgg_mean: True
+vgg_choose: relu5_1
+no_vgg_instance: False
+vgg_maxpooling: False
+IN_vgg: False
+
+# logs
+logger_level: info
+exp_path: exp_LOL

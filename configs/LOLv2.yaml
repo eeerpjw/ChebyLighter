@@ -1,0 +1,57 @@
+data_path: /home/pjw/Datasets/
+# /data/Dataset 存放了其他的数据集，Dataset_HDR 存放了
+train_bsz: 16
+eval_bsz: 8
+
+# train settings
+phase: train
+num_workers: 4
+num_epoch: 200
+start_epoch: 0
+ckp_freq: 20
+
+# exp names
+exp_name: best
+comment: 1-1-0-1 # 定
+
+# dataset
+dataset: LOL-v2 # LOL
+test_path:  /home/pjw/Datasets/lowlight_test
+test_epoch: -1
+require_a: False
+image_size: 256
+dataset_name: LOL-v2
+
+# loss
+w_vgg: 0.5
+w_ssim: 1.0
+w_l1: 0.0
+w_mse: 0.0
+
+# optimizer
+lr: 0.0001
+b1: 0.9
+b2: 0.999
+weight_decay: 0.0001
+grad_clip_norm: 0.1
+lr_scheduler: exp  #  multistep exp
+lr_step_size: 5
+lr_gamma: 0.96
+
+# networks
+num_fea: 32 
+adb_type: triple #baseline
+model: ChebyAll3DAB
+# num_orders: 6 # config要改的啊
+shareweight: False
+
+# vgg settings
+vgg_mean: True
+vgg_choose: relu5_1
+no_vgg_instance: False
+vgg_maxpooling: False
+IN_vgg: False
+
+# logs
+logger_level: info
+exp_path: exp_LOLv2
